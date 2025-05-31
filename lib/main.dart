@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider_test/components/counter.dart';
 import 'package:flutter_provider_test/provider/counter.provider.dart';
 import 'package:provider/provider.dart';
 
@@ -97,6 +98,9 @@ class _MyHomePageState extends State<MyHomePage> {
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        actions: [
+          const Counter(),
+        ],
       ),
       body: Center(
         // Center is a layout widget. It takes a single child and positions it
@@ -120,13 +124,9 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Consumer<CounterProvider>(
-                builder: (BuildContext context, valCounter, Widget? child) {
-              return Text(
-                valCounter.counter.toString(),
-                style: Theme.of(context).textTheme.headlineMedium,
-              );
-            }),
+            const Counter(),
+            const Counter(),
+            const Counter(),
           ],
         ),
       ),
