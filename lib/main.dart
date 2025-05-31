@@ -67,6 +67,9 @@ class _MyHomePageState extends State<MyHomePage> {
   // int _counter = 0;
 
   void _incrementCounter() {
+    // memamnggil provider, class CounterProvider dan method incrementCountetr dari counter.provider.dart
+    Provider.of<CounterProvider>(context, listen: false).incrementCounter();
+
     // setState(() {
     //   // This call to setState tells the Flutter framework that something has
     //   // changed in this State, which causes it to rerun the build method below
@@ -127,14 +130,12 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: Consumer<CounterProvider>(
-          builder: (BuildContext context, valCounter, Widget? child) {
-        return FloatingActionButton(
-          onPressed: valCounter.incrementCounter,
-          tooltip: 'Increment',
-          child: const Icon(Icons.add),
-        );
-      }), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: FloatingActionButton(
+        // memanggil fungsi increment counter dari app Scaffold itu sendiri
+        onPressed: _incrementCounter,
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
